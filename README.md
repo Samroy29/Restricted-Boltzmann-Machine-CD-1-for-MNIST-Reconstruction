@@ -1,56 +1,16 @@
-
-# Restricted Boltzmann Machine (RBM) for MNIST Reconstruction
+# Restricted Boltzmann Machine (RBM) – MNIST Reconstruction
 
 This project implements a **Restricted Boltzmann Machine (RBM)** from scratch using NumPy.  
-The RBM is trained on the MNIST dataset and used as a simple **unsupervised autoencoder** to reconstruct handwritten digits.
+The model is trained on the MNIST dataset to reconstruct handwritten digits.
 
 ---
 
-## 🧠 What is a Restricted Boltzmann Machine?
+## 🧠 Project Goal
 
-A Restricted Boltzmann Machine is a probabilistic neural network consisting of:
-
-- A **visible layer** (input data)
-- A **hidden layer** (latent feature representation)
-
-There are no connections within a layer, only between visible and hidden units.
-
-The model learns a joint probability distribution:
-
-\[
-P(v, h)
-\]
-
-where:
-- \(v\) = visible units (input images)
-- \(h\) = hidden units (latent features)
-
----
-
-## ⚙️ How the Model Works
-
-The RBM is trained using **Contrastive Divergence (CD-1)**:
-
-### 1. Positive Phase
-The hidden layer is activated given the input:
-
-\[
-P(h|v) = \sigma(Wv + c)
-\]
-
-### 2. Negative Phase (Reconstruction)
-The model reconstructs the input:
-
-\[
-P(v|h) = \sigma(W^T h + b)
-\]
-
-### 3. Parameter Update
-Weights are updated using:
-
-\[
-\Delta W = v_0 h_0^T - v_1 h_1^T
-\]
+The goal of this project is to learn how a simple **unsupervised neural network** can:
+- learn patterns in handwritten digits
+- compress input data into a hidden representation
+- reconstruct the original input
 
 ---
 
@@ -58,39 +18,46 @@ Weights are updated using:
 
 - MNIST handwritten digits
 - Images are:
-  - Normalized to [0,1]
-  - Flattened to 784-dimensional vectors
-  - Binarized for RBM training
+  - normalized to [0,1]
+  - flattened (28×28 → 784 features)
+  - binarized for training
 
 ---
 
-## 🏗 Model Architecture
+## 🏗 Model Overview
 
-- Visible units: 784 (28×28 pixels)
-- Hidden units: 100
-- Activation function: Sigmoid
+- Visible layer: 784 neurons
+- Hidden layer: 100 neurons
+- Activation: Sigmoid
 - Sampling: Bernoulli sampling
-- Training method: CD-1
+
+---
+
+## 🔁 Training
+
+The model is trained using an iterative process where it:
+- encodes input into hidden features
+- reconstructs the input
+- updates weights based on reconstruction error
+
+Training uses a simple contrastive learning approach.
 
 ---
 
 ## 📈 Results
 
-The model is able to reconstruct MNIST digits after training.
-
-Example:
-
-- Original digits → reconstructed digits (visible similarity after training)
-- Loss decreases over epochs
+After training, the model is able to:
+- reconstruct MNIST digits
+- preserve the general shape of digits
+- reduce reconstruction error over time
 
 ---
 
 ## 🖼 Example Output
 
-(Add your generated plots here)
-
-- Training vs Validation Loss
-- Original vs Reconstructed digits
+Include here:
+- training vs validation loss plot
+- original vs reconstructed digits
 
 ---
 
