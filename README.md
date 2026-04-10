@@ -60,7 +60,9 @@ Include here:
 - original vs reconstructed digits
 
 ---
+## 🖼 Reconstructions
 
+![RBM Reconstructions](https://raw.githubusercontent.com/Samroy29/Restricted-Boltzmann-Machine-CD-1-for-MNIST-Reconstruction/main/reconstructions.png)
 ## 🚀 How to Run
 
 ```bash
